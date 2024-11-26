@@ -8,6 +8,7 @@ const api = axios.create({
   baseURL: freshsalesUrl,
   headers: {
     Authorization: `Token token=${freshsalesToken}`,
+    Accept: "application/json"
   },
 });
 

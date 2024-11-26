@@ -2,7 +2,6 @@ import express from "express";
 // import contactUsRouter from "../src/routes/freshsales.route.js";
 import dotenv from "dotenv";
 import contactUsRouter from "./routes/freshsales.route.js";
-import bodyParser from "body-parser";
 import cors from "cors";
 
 const corsOptions = {
