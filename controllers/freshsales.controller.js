@@ -42,7 +42,7 @@ const freshsalesController = {
   uploadDocument: async (req, res) => {
     if (!req.file)
       return res.status(400).json({ message: "No file uploaded!" });
-    if (!req.body["targetable_Id"])
+    if (!req.body["targetable_id"])
       return res.status(400).json({ message: "Contact Id is Required!" });
 
     try {
@@ -56,7 +56,7 @@ const freshsalesController = {
       formData.append("file", file);
       formData.append("file_name", req.file.originalname);
       formData.append("is_shared", "true");
-      formData.append("targetable_id", req.body["targetable_Id"]);
+      formData.append("targetable_id", req.body["targetable_id"]);
       formData.append("targetable_type", "Contact");
       const response = await api.post("/documents", formData, {
         headers: { "Content-Type": "multipart/form-data" },
