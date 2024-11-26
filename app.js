@@ -3,10 +3,18 @@ import express from "express";
 import dotenv from "dotenv";
 import contactUsRouter from "./routes/freshsales.route.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 dotenv.config();
 
 const app = express();
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello World");
