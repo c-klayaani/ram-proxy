@@ -36,13 +36,9 @@ const freshsalesController = {
       return res.status(400).json({ message: "Contact Id is Required!" });
 
     try {
-      const file = new File([req.file.buffer], req.file.originalname, {
-        type: req.file.mimeType,
-      });
-
       const formData = new FormData();
 
-      formData.append("file", file);
+      formData.append("file", new Blob([req.file]), req.file.originalname);
       formData.append("file_name", req.file.originalname);
       formData.append("is_shared", "true");
       formData.append("targetable_id", req.body["targetable_id"]);
