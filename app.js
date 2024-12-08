@@ -22,6 +22,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(requestsLimit);
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("Hello World"));
 app.use("/contact-us", contactUsRouter);
